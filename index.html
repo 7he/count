@@ -82,15 +82,15 @@
               <td><input type="number" class="form-control" v-model="totalPeopleNum" min="0"></td>
             </tr>
             <tr>
-              <th scope="row">11：00前业绩</th>
+              <th scope="row">11:00前业绩</th>
               <td><input type="number" class="form-control" v-model="yeji11" min="0"></td>
             </tr>
             <tr>
-              <th scope="row">11：00-14:00业绩</th>
+              <th scope="row">11:00-14:00业绩</th>
               <td><input type="number" class="form-control" v-model="yeji22" min="0"></td>
             </tr>
             <tr>
-              <th scope="row">14：00-17:30业绩</th>
+              <th scope="row">14:00-17:30业绩</th>
               <td><input type="number" class="form-control" v-model="yeji55" min="0"></td>
             </tr>
             <tr>
@@ -268,12 +268,6 @@
             return this.ElementFuKuan && this.ElementYouHui ? ((this.ElementYouHui / ((this.ElementFuKuan * 10 + this.ElementYouHui * 10) / 10)) * 100).toFixed(1) + '%' : 0
           },
 
-
-        },
-        methods: {
-
-        },
-        watch: {
 
         }
       })
