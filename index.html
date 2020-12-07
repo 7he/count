@@ -23,7 +23,6 @@
 
 <body>
   <div id="app" v-cloak>
-<<<<<<< HEAD
     <div class="container">
       <button style="margin-top:20px" class="btn btn-sm btn-success" @click='check'>中午/晚上</button>
 
@@ -64,121 +63,6 @@
             </tbody>
           </table>
         </div>
-=======
-    <div class="container" style="margin-top: 50px;">
-      <div class="left col-sm-6 float-left">
-        <table class="table table-borderless table-hover table-sm">
-          <thead>
-            <tr>
-              <!-- <th scope="col">#</th> -->
-              <!-- <th scope="col">First</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">日期</th>
-              <td><input type="text" class="form-control" v-model="date" disabled></td>
-            </tr>
-            <tr>
-              <th scope="row">座位数</th>
-              <td><input type="text" class="form-control" value="34" disabled></td>
-            </tr>
-            <tr>
-              <th scope="row">盈亏平衡：</th>
-              <td><input type="number" class="form-control" v-model="ykph" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">去年11月业绩</th>
-              <td><input type="text" class="form-control" v-model="beforeYearYJ" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">今年11月目标</th>
-              <td><input type="text" class="form-control" v-model="curYearYJ" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">今年业绩目标</th>
-              <td><input type="text" class="form-control" v-model="toDayGoal" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">实际达成</th>
-              <td><input type="number" class="form-control" v-model="actuallyAchieved" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">业绩累计达成</th>
-              <td><input type="number" class="form-control" v-model="leiJiDaCheng" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">TC</th>
-              <td><input type="number" class="form-control" v-model="TC" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">堂食业绩</th>
-              <td><input type="number" class="form-control" v-model="tsPerformance" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">团餐业绩</th>
-              <td><input type="number" class="form-control" v-model="tcPerformance" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">上班总人数</th>
-              <td><input type="number" class="form-control" v-model="totalPeopleNum" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">11:00前业绩</th>
-              <td><input type="number" class="form-control" v-model="yeji11" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">11:00-14:00业绩</th>
-              <td><input type="number" class="form-control" v-model="yeji22" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">14:00-17:30业绩</th>
-              <td><input type="number" class="form-control" v-model="yeji55" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">17:30-21:00业绩</th>
-              <td><input type="number" class="form-control" v-model="yeji99" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">上月业绩</th>
-              <td><input type="number" class="form-control" v-model="beforeMonthYj" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">美团付款</th>
-              <td><input type="number" class="form-control" v-model="MeiTuanFuKuan" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">美团优惠</th>
-              <td><input type="number" class="form-control" v-model="MeiTuanYouHui" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">饿了么付款</th>
-              <td><input type="number" class="form-control" v-model="ElementFuKuan" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">饿了么优惠</th>
-              <td><input type="number" class="form-control" v-model="ElementYouHui" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">冒菜</th>
-              <td><input type="number" class="form-control" v-model="MaoCai" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">咖啡奶茶</th>
-              <td><input type="number" class="form-control" v-model="Coffee" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">酸菜鱼</th>
-              <td><input type="number" class="form-control" v-model="SuanCaifish" min="0"></td>
-            </tr>
-            <tr>
-              <th scope="row">炖鸡米线</th>
-              <td><input type="number" class="form-control" v-model="DunJiMiXian" min="0"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
->>>>>>> 48f5be662351b1125965bf7921545325726e1412
 
         <div class="right col-sm-5 border float-left" id="foo1">
 
@@ -445,7 +329,6 @@
           ElementBuTieLv() {
             return this.ElementFuKuan && this.ElementYouHui ? ((this.ElementYouHui / ((this.ElementFuKuan * 10 + this.ElementYouHui * 10) / 10)) * 100).toFixed(1) + '%' : 0
           },
-<<<<<<< HEAD
         },
         methods: {
           check() {
@@ -453,11 +336,6 @@
             this.isShowB = !this.isShowB
           }
         },
-=======
-
-
-        }
->>>>>>> 48f5be662351b1125965bf7921545325726e1412
       })
     </script>
 </body>
