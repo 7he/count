@@ -294,7 +294,7 @@
           },
           //外送业绩
           wsPerformance() {
-            return this.actuallyAchieved && this.tsPerformance ? this.actuallyAchieved - this.tsPerformance : 0
+            return this.actuallyAchieved && this.tsPerformance ? (this.actuallyAchieved - this.tsPerformance).toFixed(1) : 0
           },
           //堂食业绩
           tsPerformance() {
