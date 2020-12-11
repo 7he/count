@@ -259,7 +259,7 @@
         computed: {
           date() {
             let date = new Date()
-            date = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate()
+            date = date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate()
             return date
           },
           //餐品数
