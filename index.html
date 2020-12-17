@@ -59,7 +59,7 @@
           <ul class="list-unstyled" style="margin-top: 12px;">
             <li>丽园路</li>
             <li>日期: {{date}}</li>
-            <li>今日总业绩:  {{actuallyAchieved}}</li>
+            <li>今日总业绩: {{actuallyAchieved}}</li>
             <li>外送业绩: {{wsPerformance}}</li>
             <li>堂食业绩：{{tsPerformance}}</li>
             <li>美团补贴率: {{MeiTuanBuTieLv}}</li>
@@ -173,10 +173,6 @@
                 <th scope="row">酸菜鱼</th>
                 <td><input type="number" class="form-control" v-model="SuanCaifish" min="0"></td>
               </tr>
-              <tr>
-                <th scope="row">炖鸡米线</th>
-                <td><input type="number" class="form-control" v-model="DunJiMiXian" min="0"></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -194,9 +190,9 @@
             <li>今年<span v-html="beforeDate"></span>月目标：{{curYearYJ}}</li>
             <li>今日业绩目标：{{toDayGoal}}</li>
             <li>实际达成: {{actuallyAchieved}}</li>
-            <li>业绩累计达成 ：{{leiJiDaCheng}}</li>
+            <li>业绩累计达成 ：{{leiJiDaCheng}}</li>
             <li>TC: {{TC}}</li>
-            <li>餐品数: {{numberOfmeals}}</li>
+            <li>餐品数: {{numberOfmeals}}</li>
             <li>AC：{{AC}} %</li>
             <li>堂食业绩：{{tsPerformance}}</li>
             <li>外送业绩: {{wsPerformance}}</li>
@@ -219,7 +215,6 @@
             <li>冒菜: {{MaoCai}}</li>
             <li>咖啡奶茶: {{Coffee}}</li>
             <li>酸菜鱼: {{SuanCaifish}}</li>
-            <li>炖鸡米线: {{DunJiMiXian}}</li>
           </ul>
         </div>
       </div>
@@ -253,7 +248,6 @@
           MaoCai: 0,
           Coffee: 0,
           SuanCaifish: 0,
-          DunJiMiXian: 0,
           isShowA: true,
           isShowB: false,
           // 
@@ -275,12 +269,10 @@
           },
           //外送业绩
           wsPerformance() {
-            return this.actuallyAchieved && this.tsPerformance ? (this.actuallyAchieved - this.tsPerformance).toFixed(2) : 0
-          },
-          //堂食业绩
-          tsPerformance() {
-            this.tsPerformance = this.tcPerformance ? this.tsPerformance - this.tcPerformance : this.tsPerformance
-            return this.tsPerformance
+            if (this.actuallyAchieved && this.tsPerformance) {
+
+              return (this.actuallyAchieved - this.tsPerformance - this.tcPerformance).toFixed(2);
+            }
           },
           //总工时
           totalWorkingHours() {
@@ -317,8 +309,7 @@
             this.isShowB = !this.isShowB
           }
         },
-      })
+      }) 
     </script>
 </body>
-
 </html>
