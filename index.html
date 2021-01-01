@@ -33,6 +33,10 @@
                 <td><input type="number" class="form-control" v-model="tsPerformance" min="0"></td>
               </tr>
               <tr>
+                <th scope="row">TC</th>
+                <td><input type="number" class="form-control" v-model="TC" min="0"></td>
+              </tr>
+              <tr>
                 <th scope="row">美团付款</th>
                 <td><input type="number" class="form-control" v-model="MeiTuanFuKuan" min="0"></td>
               </tr>
@@ -62,6 +66,7 @@
             <li>今日总业绩: {{actuallyAchieved}}</li>
             <li>外送业绩: {{wsPerformance}}</li>
             <li>堂食业绩：{{tsPerformance}}</li>
+            <li>TC：{{TC}}</li>
             <li>美团补贴率: {{MeiTuanBuTieLv}}</li>
             <li>饿了么补贴率: {{ElementBuTieLv}}</li>
           </ul>
