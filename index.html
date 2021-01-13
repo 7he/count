@@ -13,7 +13,7 @@
 <body>
   <div id="app" v-cloak>
     <div class="container">
-      <button style="margin-top:20px" class="btn btn-sm btn-success" @click='check'>中午/晚上</button>
+      <button style="margin-top:20px" class="btn btn-sm btn-primary" @click='check'>中午/晚上</button>
       <div v-show="isShowA" style="margin-top:20px;">
         <div class="left col-sm-6 float-left">
           <table class="table table-borderless table-hover table-sm">
@@ -57,7 +57,7 @@
         </div>
         <div class="right col-sm-5 border float-left" id="foo1">
           <!-- Trigger -->
-          <button style="margin-top: 10px;" class="btn btn-success btn-sm" data-clipboard-target="#foo1">
+          <button style="margin-top: 10px;" class="btn btn-primary btn-sm" data-clipboard-target="#foo1">
             复制
           </button>
           <ul class="list-unstyled" style="margin-top: 12px;">
@@ -131,15 +131,15 @@
                 <td><input type="number" class="form-control" v-model="totalPeopleNum" min="0"></td>
               </tr>
               <tr>
-                <th scope="row">11：00前业绩</th>
+                <th scope="row">11:00前业绩</th>
                 <td><input type="number" class="form-control" v-model="yeji11" min="0"></td>
               </tr>
               <tr>
-                <th scope="row">11：00-14:00业绩</th>
+                <th scope="row">11:00-14:00业绩</th>
                 <td><input type="number" class="form-control" v-model="yeji22" min="0"></td>
               </tr>
               <tr>
-                <th scope="row">14：00-17:30业绩</th>
+                <th scope="row">14:00-17:30业绩</th>
                 <td><input type="number" class="form-control" v-model="yeji55" min="0"></td>
               </tr>
               <tr>
@@ -167,12 +167,12 @@
                 <td><input type="number" class="form-control" v-model="ElementYouHui" min="0"></td>
               </tr>
               <tr>
-                <th scope="row">冒菜</th>
-                <td><input type="number" class="form-control" v-model="MaoCai" min="0"></td>
+                <th scope="row">猪肝</th>
+                <td><input type="number" class="form-control" v-model="ZhuGan" min="0"></td>
               </tr>
               <tr>
-                <th scope="row">咖啡奶茶</th>
-                <td><input type="number" class="form-control" v-model="Coffee" min="0"></td>
+                <th scope="row">丸子汤</th>
+                <td><input type="number" class="form-control" v-model="WanZiTang" min="0"></td>
               </tr>
             </tbody>
           </table>
@@ -187,7 +187,7 @@
             <li>日期: {{date}}</li>
             <li>座位数：34
             <li>盈亏平衡：{{ykph}}</li>
-            <li>去年<span v-html="beforeDate"></span>月业绩：无</li>
+            <li>去年<span v-html="beforeDate"></span>月业绩：{{beforeYearYJ}}</li>
             <li>今年<span v-html="beforeDate"></span>月目标：{{curYearYJ}}</li>
             <li>今日业绩目标：{{toDayGoal}}</li>
             <li>实际达成: {{actuallyAchieved}}</li>
@@ -201,9 +201,9 @@
             <li>上班总工时：{{totalWorkingHours}}</li>
             <li>人时营业额: {{peopleHourYj}}</li>
             <li>上班总人数：{{totalPeopleNum}}</li>
-            <li>11：00前业绩: {{yeji11}}</li>
+            <li>11:00前业绩: {{yeji11}}</li>
             <li>占比: {{zanbi11}}</li>
-            <li>11：00––14:00业绩: {{yeji22}}</li>
+            <li>11:00––14:00业绩: {{yeji22}}</li>
             <li>占比: {{zanbi22}}</li>
             <li>14:00—17:30业绩: {{yeji55}}</li>
             <li>占比: {{zanbi55}}</li>
@@ -213,8 +213,8 @@
             <li>环比达成率：{{huanbidacheng}}</li>
             <li>美团补贴率: {{MeiTuanBuTieLv}}</li>
             <li>饿了么补贴率: {{ElementBuTieLv}}</li>
-            <li>冒菜: {{MaoCai}}</li>
-            <li>咖啡奶茶: {{Coffee}}</li>
+            <li>猪肝: {{ZhuGan}}</li>
+            <li>丸子汤: {{WanZiTang}}</li>
           </ul>
         </div>
       </div>
@@ -227,7 +227,7 @@
         el: '#app',
         data: {
           ykph: 15000,          //盈亏平衡
-          beforeYearYJ: '无',   //去年11月业绩
+          beforeYearYJ: 36067,   //去年11月业绩
           curYearYJ: 240000,    //今年11月目标 
           toDayGoal: 8000,      //今日业绩目标
           actuallyAchieved: 0,  //实际达成
@@ -245,8 +245,8 @@
           MeiTuanYouHui: 0,
           ElementFuKuan: 0,
           ElementYouHui: 0,
-          MaoCai: 0,
-          Coffee: 0,
+          WanZiTang: 0,
+          ZhuGan: 0,
           isShowA: true,
           isShowB: false,
           // 
