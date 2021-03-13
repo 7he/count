@@ -257,8 +257,8 @@
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.min.js"></script>
     <script>
-      new ClipboardJS('.btn');
-      const vm = new Vue({
+      new ClipboardJS('.btn')
+      var vm = new Vue({
         el: '#app',
         data: {
           ykph: 15000,          //盈亏平衡
@@ -286,7 +286,7 @@
         },
         computed: {
           date() {
-            let date = new Date()
+            var date = new Date()
             date = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
             return date
           },
@@ -325,6 +325,9 @@
             return this.actuallyAchieved && this.totalWorkingHours ? (this.actuallyAchieved / this.totalWorkingHours).toFixed(0) : ''
           },
           huanbidacheng() {
+            if (0 == this.beforeMonthYj) {
+              return 0 + '%'
+            }
             return this.beforeMonthYj ? (this.actuallyAchieved / this.beforeMonthYj * 100).toFixed(1) + '%' : ''
           },
           MeiTuanBuTieLv() {
@@ -338,8 +341,8 @@
           check() {
             this.isShow = !this.isShow
           }
-        },
-      }) 
+        }
+      })
     </script>
 </body>
 
