@@ -24,7 +24,7 @@
     }
 
     .bounce-enter-active {
-      animation: bounce-in .5s;
+      animation: bounce-in .9s;
     }
 
     .bounce-leave-active {
@@ -33,10 +33,11 @@
   </style>
 </head>
 
-<body>
+<body> 
   <div id="app" v-cloak>
+    <h4 style="text-align: center;margin-top: 15px;">丽园路专用业绩工具</h4>
     <div class="container">
-      <button style="margin-top:20px" class="btn btn-sm btn-primary" @click='check'>中午/晚上</button>
+      <button style="margin-top:20px;" class="btn btn-md btn-success" @click='check'>中午/晚上</button>
       <transition name="bounce">
         <div v-show="isShow" style="margin-top:20px;">
           <div class="left col-sm-6 float-left">
@@ -87,8 +88,8 @@
           </div>
           <div class="right col-sm-5 border float-left" id="foo1">
             <!-- Trigger -->
-            <button style="margin-top: 10px;" class="btn btn-primary btn-sm" data-clipboard-target="#foo1">
-              复制
+            <button style="margin-top: 10px;" class="btn btn-danger btn-md" data-clipboard-target="#foo1">
+              一键复制
             </button>
             <ul class="list-unstyled" style="margin-top: 12px;">
               <li>丽园路</li>
@@ -214,8 +215,8 @@
           </div>
           <div class="right col-sm-5 border float-left" id="foo">
             <!-- Trigger -->
-            <button class="btn btn-primary btn-sm" data-clipboard-target="#foo">
-              复制
+            <button class="btn btn-danger btn-md" data-clipboard-target="#foo">
+              一键复制
             </button>
             <ul class="list-unstyled" style="margin-top: 12px;">
               <li>丽园路</li>
@@ -262,9 +263,9 @@
         el: '#app',
         data: {
           ykph: 15000,          //盈亏平衡
-          beforeYearYJ: '',   //去年11月业绩
-          curYearYJ: 240000,    //今年11月目标 
-          toDayGoal: 8000,      //今日业绩目标
+          beforeYearYJ: 190662,   //去年11月业绩
+          curYearYJ: 210000,    //今年11月目标 
+          toDayGoal: 7000,      //今日业绩目标
           actuallyAchieved: '',  //实际达成
           leiJiDaCheng: '',      //累计达成
           TC: '',                //TC 
@@ -287,7 +288,11 @@
         computed: {
           date() {
             var date = new Date()
-            date = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
+            var year = date.getFullYear()
+            var month = date.getMonth() + 1
+            var _date = date.getDate()
+
+            date = year + '/' + month + '/' + _date
             return date
           },
           //餐品数
