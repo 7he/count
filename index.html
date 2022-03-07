@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,29 +12,24 @@
       0% {
         transform: scale(0);
       }
-
       50% {
         transform: scale(1.1);
       }
-
       100% {
         transform: scale(1);
       }
     }
-
     .bounce-enter-active {
       animation: bounce-in .9s;
     }
-
     .bounce-leave-active {
       animation: bounce-in 0s reverse;
     }
   </style>
 </head>
-
-<body> 
+<body>
   <div id="app" v-cloak>
-    <h4 style="text-align: center;margin-top: 15px;">丽园路专用业绩工具</h4>
+    <h4 style="text-align: center;margin-top: 15px;">路漫漫其修远兮</h4>
     <div class="container">
       <button style="margin-top:20px;" class="btn btn-md btn-success" @click='check'>中午/晚上</button>
       <transition name="bounce">
@@ -64,47 +58,61 @@
                   <td><input type="number" class="form-control" placeholder="待输入..." v-model="TC" min="0"></td>
                 </tr>
                 <tr>
-                  <th scope="row">美团付款</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="MeiTuanFuKuan" min="0">
+                  <th scope="row">业绩累计达成</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="leiJiDaCheng" min="0">
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">美团优惠</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="MeiTuanYouHui" min="0">
+                  <th scope="row">团餐业绩</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="tcPerformance" min="0">
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">饿了么补贴金</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="ElementButie" min="0">
+                  <th scope="row">昨日业绩</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="yesterdayPerformance"
+                      min="0">
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">饿了么营业额</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="ElementYingyeE" min="0">
+                  <th scope="row">昨日堂食</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="yesterdayTsPerformance"
+                      min="0">
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">昨日外卖</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="yesterdayWmPerformance"
+                      min="0">
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="right col-sm-5 border float-left" id="foo1">
-            <!-- Trigger -->
-            <button style="margin-top: 10px;" class="btn btn-danger btn-md" data-clipboard-target="#foo1">
-              一键复制
-            </button>
-            <ul class="list-unstyled" style="margin-top: 12px;">
-              <li>丽园路</li>
-              <li>日期: {{date}}</li>
-              <li>今日总业绩: {{actuallyAchieved}}</li>
-              <li>外送业绩: {{wsPerformance}}</li>
-              <li>堂食业绩：{{tsPerformance}}</li>
-              <li>TC：{{TC}}</li>
-              <li>美团补贴率: {{MeiTuanBuTieLv}}</li>
-              <li>饿了么补贴率: {{ElementBuTieLv}}</li>
-            </ul>
+            <div id="foo1">
+              <button style="margin-top: 10px;" class="btn btn-danger btn-md" data-clipboard-target="#foo1">
+                一键复制
+              </button>
+              <!-- Trigger -->
+              <ul class="list-unstyled" style="margin-top: 12px;">
+                <li>丽园路</li>
+                <li>日期: {{date}}</li>
+                <li>今日1430业绩: {{actuallyAchieved}}</li>
+                <li>业绩累计达成 ：{{leiJiDaCheng}}</li>
+                <li>外送业绩: {{wsPerformance}}</li>
+                <li>堂食业绩：{{tsPerformance}}</li>
+                <li>TC：{{TC}}</li>
+                <li>团餐业绩：{{tcPerformance}}</li>
+                <li>{{new Date().getFullYear()}}/{{beforeDate}}/{{new Date().getDate()
+                  -1}}昨日1430业绩：{{yesterdayPerformance}}</li>
+                <li>堂食业绩：{{yesterdayTsPerformance}}</li>
+                <li>外卖业绩：{{yesterdayWmPerformance}}</li>
+                <li>环比昨日总业绩达成率：{{((actuallyAchieved / yesterdayPerformance) * 100 ).toFixed(2)}}%</li>
+              </ul>
+            </div>
           </div>
         </div>
       </transition>
-
       <transition name="bounce">
         <div v-show="!isShow" style="margin-top: 30px;">
           <div class="left col-sm-6 float-left">
@@ -191,69 +199,66 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">美团付款</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="MeiTuanFuKuan" min="0">
+                  <th scope="row">卤蛋</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="LuDan" min="0">
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">美团优惠</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="MeiTuanYouHui" min="0">
+                  <th scope="row">卤腿</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="LuTui" min="0">
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">饿了么补贴金</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="ElementButie" min="0">
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">饿了么营业额</th>
-                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="ElementYingyeE" min="0">
+                  <th scope="row">茄子鸡排</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="qieZiJiPai" min="0">
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="right col-sm-5 border float-left" id="foo">
+          <div class="right col-sm-5 border float-left">
             <!-- Trigger -->
             <button class="btn btn-danger btn-md" data-clipboard-target="#foo">
               一键复制
             </button>
-            <ul class="list-unstyled" style="margin-top: 12px;">
-              <li>丽园路</li>
-              <li>日期: {{date}}</li>
-              <li>座位数：34
-              <li>盈亏平衡：{{ykph}}</li>
-              <li>去年<span v-html="beforeDate"></span>月业绩：{{beforeYearYJ}}</li>
-              <li>今年<span v-html="beforeDate"></span>月目标：{{curYearYJ}}</li>
-              <li>今日业绩目标：{{toDayGoal}}</li>
-              <li>实际达成: {{actuallyAchieved}}</li>
-              <li>业绩累计达成 ：{{leiJiDaCheng}}</li>
-              <li>TC: {{TC}}</li>
-              <li>餐品数: {{numberOfmeals}}</li>
-              <li>AC：{{AC}} %</li>
-              <li>堂食业绩：{{tsPerformance}}</li>
-              <li>外送业绩: {{wsPerformance}}</li>
-              <li>团餐业绩：{{tcPerformance}}</li>
-              <li>上班总工时：{{totalWorkingHours}}</li>
-              <li>人时营业额: {{peopleHourYj}}</li>
-              <li>上班总人数：{{totalPeopleNum}}</li>
-              <li>11:00前业绩: {{yeji11}}</li>
-              <li>占比: {{zanbi11}}</li>
-              <li>11:00––14:00业绩: {{yeji22}}</li>
-              <li>占比: {{zanbi22}}</li>
-              <li>14:00—17:30业绩: {{yeji55}}</li>
-              <li>占比: {{zanbi55}}</li>
-              <li>17:30-21:00业绩: {{yeji99}}</li>
-              <li>占比: {{zanbi99}}</li>
-              <li>上月业绩: {{beforeMonthYj}}</li>
-              <li>环比达成率：{{huanbidacheng}}</li>
-              <li>美团补贴率: {{MeiTuanBuTieLv}}</li>
-              <li>饿了么补贴率: {{ElementBuTieLv}}</li>
-            </ul>
+            <div id="foo">
+              <ul class="list-unstyled" style="margin-top: 12px;">
+                <li>丽园路</li>
+                <li>日期: {{date}}</li>
+                <li>座位数：34
+                <li>盈亏平衡：{{ykph}}</li>
+                <li>去年<span v-html="beforeDate"></span>月业绩：{{beforeYearYJ}}</li>
+                <li>今年<span v-html="beforeDate"></span>月目标：{{curYearYJ}}</li>
+                <li>今日业绩目标：{{toDayGoal}}</li>
+                <li>实际达成: {{actuallyAchieved}}</li>
+                <li>业绩累计达成 ：{{leiJiDaCheng}}</li>
+                <li>TC: {{TC}}</li>
+                <li>餐品数: {{numberOfmeals}}</li>
+                <li>AC：{{AC}} %</li>
+                <li>堂食业绩：{{tsPerformance}}</li>
+                <li>外送业绩: {{wsPerformance}}</li>
+                <li>团餐业绩：{{tcPerformance}}</li>
+                <li>上班总工时：{{totalWorkingHours}}</li>
+                <li>人时营业额: {{peopleHourYj}}</li>
+                <li>上班总人数：{{totalPeopleNum}}</li>
+                <li>11:00前业绩: {{yeji11}}</li>
+                <li>占比: {{zanbi11}}</li>
+                <li>11:00-14:00业绩: {{yeji22}}</li>
+                <li>占比: {{zanbi22}}</li>
+                <li>14:00-17:30业绩: {{yeji55}}</li>
+                <li>占比: {{zanbi55}}</li>
+                <li>17:30-21:00业绩: {{yeji99}}</li>
+                <li>占比: {{zanbi99}}</li>
+                <li>上月业绩: {{beforeMonthYj}}</li>
+                <li>环比达成率：{{huanbidacheng}}</li>
+                <li>卤蛋: {{LuDan}}</li>
+                <li>卤腿: {{LuTui}}</li>
+                <li>茄子鸡排: {{qieZiJiPai}}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </transition>
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.min.js"></script>
@@ -262,10 +267,10 @@
       var vm = new Vue({
         el: '#app',
         data: {
-          ykph: 15000,          //盈亏平衡
-          beforeYearYJ: 190662,   //去年11月业绩
-          curYearYJ: 210000,    //今年11月目标 
-          toDayGoal: 7000,      //今日业绩目标
+          ykph: 180000,          //盈亏平衡
+          beforeYearYJ: 175514,   //去年x月业绩
+          curYearYJ: 140000,    //今年x月目标 
+          toDayGoal: 6500,      //今日业绩目标
           actuallyAchieved: '',  //实际达成
           leiJiDaCheng: '',      //累计达成
           TC: '',                //TC 
@@ -277,13 +282,15 @@
           yeji55: '',
           yeji99: '',
           beforeMonthYj: '',
-          MeiTuanFuKuan: '',
-          MeiTuanYouHui: '',
-          ElementButie: '',
-          ElementYingyeE: '',
+          LuDan: '',
+          LuTui: '',
           isShow: true,
           // 
-          beforeDate: new Date().getMonth() + 1
+          beforeDate: new Date().getMonth() + 1,
+          yesterdayPerformance: '',
+          yesterdayTsPerformance: '',
+          yesterdayWmPerformance: '',
+          qieZiJiPai: ''
         },
         computed: {
           date() {
@@ -307,7 +314,7 @@
           wsPerformance() {
             if (this.actuallyAchieved && this.tsPerformance) {
 
-              return (this.actuallyAchieved - this.tsPerformance - this.tcPerformance).toFixed(2);
+              return (this.actuallyAchieved - this.tsPerformance).toFixed(2);
             }
           },
           //总工时
@@ -335,20 +342,18 @@
             }
             return this.beforeMonthYj ? (this.actuallyAchieved / this.beforeMonthYj * 100).toFixed(1) + '%' : ''
           },
-          MeiTuanBuTieLv() {
-            return this.MeiTuanFuKuan && this.MeiTuanYouHui ? ((this.MeiTuanYouHui / ((this.MeiTuanFuKuan * 10 + this.MeiTuanYouHui * 10) / 10)) * 100).toFixed(1) + '%' : ''
-          },
-          ElementBuTieLv() {
-            return this.ElementButie && this.ElementYingyeE ? ((this.ElementButie / this.ElementYingyeE) * 100).toFixed(1) + '%' : ''
-          },
         },
         methods: {
           check() {
             this.isShow = !this.isShow
+            var date = new Date()
+            var day = date.getDay()
+            if (day == 7 || day == 6) {
+              this.toDayGoal = 6000
+            }
           }
-        }
+        },
       })
     </script>
 </body>
-
 </html>
