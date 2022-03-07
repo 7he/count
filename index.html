@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +13,26 @@
       0% {
         transform: scale(0);
       }
+
       50% {
         transform: scale(1.1);
       }
+
       100% {
         transform: scale(1);
       }
     }
+
     .bounce-enter-active {
       animation: bounce-in .9s;
     }
+
     .bounce-leave-active {
       animation: bounce-in 0s reverse;
     }
   </style>
 </head>
+
 <body>
   <div id="app" v-cloak>
     <h4 style="text-align: center;margin-top: 15px;">路漫漫其修远兮</h4>
@@ -199,6 +205,12 @@
                   </td>
                 </tr>
                 <tr>
+                  <th scope="row">去年同期业绩</th>
+                  <td><input type="number" class="form-control" placeholder="待输入..." v-model="lastyearPerformance"
+                      min="0">
+                  </td>
+                </tr>
+                <tr>
                   <th scope="row">卤蛋</th>
                   <td><input type="number" class="form-control" placeholder="待输入..." v-model="LuDan" min="0">
                   </td>
@@ -251,6 +263,8 @@
                 <li>占比: {{zanbi99}}</li>
                 <li>上月业绩: {{beforeMonthYj}}</li>
                 <li>环比达成率：{{huanbidacheng}}</li>
+                <li>去年同期业绩：{{lastyearPerformance}}</li>
+                <li>同比达成：{{((actuallyAchieved / lastyearPerformance)*100).toFixed(2)}}%</li>
                 <li>卤蛋: {{LuDan}}</li>
                 <li>卤腿: {{LuTui}}</li>
                 <li>茄子鸡排: {{qieZiJiPai}}</li>
@@ -267,16 +281,16 @@
       var vm = new Vue({
         el: '#app',
         data: {
-          ykph: 180000,          //盈亏平衡
-          beforeYearYJ: 175514,   //去年x月业绩
-          curYearYJ: 140000,    //今年x月目标 
-          toDayGoal: 6500,      //今日业绩目标
-          actuallyAchieved: '',  //实际达成
-          leiJiDaCheng: '',      //累计达成
-          TC: '',                //TC 
-          tcPerformance: '',     //团餐业绩
-          tsPerformance: '',     //堂食业绩
-          totalPeopleNum: '',     // 
+          ykph: 180000,
+          beforeYearYJ: 197892,
+          curYearYJ: 194500,
+          toDayGoal: 6500,
+          actuallyAchieved: '',
+          leiJiDaCheng: '',
+          TC: '',
+          tcPerformance: '',
+          tsPerformance: '',
+          totalPeopleNum: '',
           yeji11: '',
           yeji22: '',
           yeji55: '',
@@ -285,12 +299,12 @@
           LuDan: '',
           LuTui: '',
           isShow: true,
-          // 
           beforeDate: new Date().getMonth() + 1,
           yesterdayPerformance: '',
           yesterdayTsPerformance: '',
           yesterdayWmPerformance: '',
-          qieZiJiPai: ''
+          qieZiJiPai: '',
+          lastyearPerformance: '',
         },
         computed: {
           date() {
@@ -298,7 +312,6 @@
             var year = date.getFullYear()
             var month = date.getMonth() + 1
             var _date = date.getDate()
-
             date = year + '/' + month + '/' + _date
             return date
           },
@@ -356,4 +369,5 @@
       })
     </script>
 </body>
+
 </html>
